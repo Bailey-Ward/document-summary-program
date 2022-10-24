@@ -5,8 +5,8 @@
 class DocSummary {
 private:
 	std::string filename = "textfile.txt";
-	int numberOfSentences;
-	int numberOfWords;
+	int numberOfSentences{};
+	int numberOfWords{};
 	std::vector<WordFreqPair> wordList;
 
 public:

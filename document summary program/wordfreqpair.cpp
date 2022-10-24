@@ -9,7 +9,7 @@ class WordFreqPair {
 	public:
 		std::string _word;
 		int _count;
-		WordFreqPair(std::string word); {
+		WordFreqPair(std::string word) {
 			_word = word;
 			_count = 1;
 		}
