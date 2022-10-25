@@ -2,33 +2,36 @@
 #include "wordfreqpair.cpp"
 
 
-class DocSummary {
-private:
-	std::string filename = "textfile.txt";
-	int numberOfSentences{};
-	int numberOfWords{};
-	std::vector<WordFreqPair> wordList;
+DocSummary::DocSummary(std::string filename) {
+	std::string filename = filename;
+	_numberOfSentences = 0;
+	_numberOfWords = 0;
+	punctuaion = ".", "!", "?";
+}
 
-public:
-	int _numberOfSentences;
-	int _numberOfWords;
-	DocSummary() {
-		_numberOfSentences = numberOfSentences;
-		_numberOfWords = numberOfWords;
-	}
-	void printSummary(){
-		cout << "There are:" << numberOfSentences << " sentences.";
-		cout << "There are:" << numberOfWords << " words.";
-	}
-private:
-	std::string increaseSentenceCount() {
 
-	}
-	std::string addWord() {
+void DocSummary::printSummary(){
+	cout << "There are:" << _numberOfSentences << " sentences.";
+	cout << "There are:" << _numberOfWords << " words.";
+}
 
+void DocSummary::increaseSentenceCount(std::string newWord) {
+	for (WordFreqPair wordObj : wordList) {
+		if (wordObj.getWord().find(punctuaion) != std::string::npos) {
+			_numberOfSentences++;
+		}
 	}
-public:
-	void analyseDocument() {
+}
 
+void DocSummary::addWord(std::string newWord) {
+	for (WordFreqPair wordObj: wordList) {
+		if (wordObj.getWord() == newWord) {
+			wordObj.setCount();
+		}
 	}
-};
+}
+
+void DocSummary::analyseDocument() {
+
+}
+

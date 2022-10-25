@@ -1,29 +1,27 @@
 #include "WordFreqPair.h"
 
-class WordFreqPair {
-	private:
-		std::string word;
-		int count;
 
+WordFreqPair::WordFreqPair() {
+	_word = "";
+	_count = 0;
+}
 
-	public:
-		std::string _word;
-		int _count;
-		WordFreqPair(std::string word) {
-			_word = word;
-			_count = 1;
-		}
-		std::string setWord() {
+WordFreqPair::WordFreqPair(std::string word, int count) {
+	_word = word;
+	_count = 1;
+}
+void WordFreqPair::setWord(std::string word) {
+	_word = word;
 
-		}
-		void getWord() {
+}
+ std::string WordFreqPair::getWord() {
+	 return _word;
+}
+void WordFreqPair::setCount() {
+	_count++;
+}
+int WordFreqPair::getCount() {
+	return _count;
+}
 
-		}
-		int setCount() {
-
-		}
-		void getCount() {
-
-		}
-};
 
