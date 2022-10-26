@@ -1,7 +1,7 @@
 #include "DocSummary.h"
 
 DocSummary::DocSummary(std::string filename) {
-	std::string fileName = filename;
+	filename = filename;
 	_numberOfSentences = 0;
 	_numberOfWords = 0;
 	punctuaion = ".", "!", "?";
@@ -11,9 +11,12 @@ DocSummary::DocSummary(std::string filename) {
 	while (file >> word1) {
 		cout << word1 << " ";
 		WordFreqPair newWord(word1, 1);
-		wordList.push_back(newWord);
+		wordList.push_back(newWord);	
+		addWord(word1);
 	}
-	file.close();
+	file.close();		
+	increaseSentenceCount(word1);
+
 }
 
 void DocSummary::printSummary(){
@@ -30,7 +33,11 @@ void DocSummary::increaseSentenceCount(std::string newWord) {
 			_numberOfSentences++;
 		}
 	}
+	for (int i = 0; i < wordList.size(); i++) {
+		_numberOfWords++;
+	}
 }
+
 
 void DocSummary::addWord(std::string newWord) {
 	for (int i = 0; i < wordList.size(); i++) {
@@ -41,9 +48,8 @@ void DocSummary::addWord(std::string newWord) {
 }
 
 void DocSummary::analyseDocument() {
-	for (int i = 0;i < wordList.size(); i++) {
-		
-	}
+
+
 }
 	
 

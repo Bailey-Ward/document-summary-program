@@ -8,7 +8,7 @@ WordFreqPair::WordFreqPair() {
 
 WordFreqPair::WordFreqPair(std::string word, int count) {
 	_word = word;
-	_count = 1;
+	_count = 0;
 }
 void WordFreqPair::setWord(std::string word) {
 	_word = word;
