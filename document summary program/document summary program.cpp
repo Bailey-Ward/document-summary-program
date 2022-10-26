@@ -5,41 +5,48 @@ DocSummary::DocSummary(std::string filename) {
 	_numberOfSentences = 0;
 	_numberOfWords = 0;
 	punctuaion = ".", "!", "?";
+	fstream file;
+	std::string word1;
+	file.open(filename.c_str());
+	while (file >> word1) {
+		cout << word1 << " ";
+		WordFreqPair newWord(word1, 1);
+		wordList.push_back(newWord);
+	}
+	file.close();
 }
 
 void DocSummary::printSummary(){
-	cout << "There are:" << _numberOfSentences << " sentences.";
-	cout << "There are:" << _numberOfWords << " words.";
+	cout << "\nThere are:" << _numberOfSentences << " sentences.\n";
+	cout << "There are:" << _numberOfWords << " words.\n";
+	for (int i = 0; i < wordList.size(); i++) {
+		cout << wordList[i].getWord() << "\t" << wordList[i].getCount() << "\n";
+	}
 }
 
 void DocSummary::increaseSentenceCount(std::string newWord) {
-	for (WordFreqPair wordObj : wordList) {
-		if (wordObj.getWord().find(punctuaion) != std::string::npos) {
+	for (int i = 0; i < wordList.size(); i++) {
+		if (wordList[i].getWord().find(punctuaion) != std::string::npos) {
 			_numberOfSentences++;
 		}
 	}
 }
 
 void DocSummary::addWord(std::string newWord) {
-	for (WordFreqPair wordObj: wordList) {
-		if (wordObj.getWord() == newWord) {
-			wordObj.setCount();
+	for (int i = 0; i < wordList.size(); i++) {
+		if (wordList[i].getWord() == newWord) {
+			wordList[i].setCount();
 		}
 	}
 }
 
 void DocSummary::analyseDocument() {
-	fstream file;
-	std::string word1;
-	file.open(filename.c_str());
-	while (file >> word1) {
-		cout << word1 << " ";
-		WordFreqPair newWord(word1);
-		wordList.push_back(newWord);
+	for (int i = 0;i < wordList.size(); i++) {
+		
 	}
-	file.close();
-	addWord(word1);
-	increaseSentenceCount(word1);
-
 }
+	
+
+
+
 

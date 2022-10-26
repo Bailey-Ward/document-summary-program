@@ -14,7 +14,7 @@ private:
 
 public:
 	WordFreqPair(void);
-	WordFreqPair(std::string);
+	WordFreqPair(std::string, int);
 	void setWord(std::string);
 	std::string getWord();
 	void setCount();

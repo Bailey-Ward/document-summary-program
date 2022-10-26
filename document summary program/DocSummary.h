@@ -4,7 +4,8 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-#include "wordfreqpair.cpp"
+#include "WordFreqPair.h"
+
 using namespace std;
 
 class DocSummary {
