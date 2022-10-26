@@ -6,7 +6,7 @@ WordFreqPair::WordFreqPair() {
 	_count = 0;
 }
 
-WordFreqPair::WordFreqPair(std::string word, int count) {
+WordFreqPair::WordFreqPair(std::string word) {
 	_word = word;
 	_count = 1;
 }
