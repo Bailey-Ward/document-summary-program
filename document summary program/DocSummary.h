@@ -22,5 +22,4 @@ public:
 
 	DocSummary(std::string);
 	void printSummary(void);
-	void analyseDocument(void);
 };
