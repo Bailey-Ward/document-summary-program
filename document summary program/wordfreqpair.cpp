@@ -1,24 +1,24 @@
 #include "WordFreqPair.h"
 
 
-WordFreqPair::WordFreqPair() {
+WordFreqPair::WordFreqPair() { //constructs initial object 
 	_word = "";
 	_count = 0;
 }
-WordFreqPair::WordFreqPair(std::string word, int count) {
+WordFreqPair::WordFreqPair(std::string word, int count) { //constructs wordfreqpair object containing a string word and number count
 	_word = word;
 	_count = 1;
 }
-void WordFreqPair::setWord(std::string word) {
+void WordFreqPair::setWord(std::string word) { //sets word attribute
 	_word = word;
 }
- std::string WordFreqPair::getWord() {
+ std::string WordFreqPair::getWord() { //returns word
 	 return _word;
 }
-void WordFreqPair::setCount() {
+void WordFreqPair::setCount() { //sets count attribute
 	_count++;
 }
-int WordFreqPair::getCount() {
+int WordFreqPair::getCount() { //returns count
 	return _count;
 }
 
